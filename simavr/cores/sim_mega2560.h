@@ -112,7 +112,7 @@ const struct mcu_t {
 			 .vector = PCINT1_vect,
 		},
 		.r_pcint = PCMSK1,
-                .mask = 0b11111110,               // PJ0-6 have PCINT9-15
+                .mask = 0xfe,               // PJ0-6 have PCINT9-15
                 .shift = -1
 	},
 	AVR_IOPORT_DECLARE_PC(k, 'K', K, 2),      // PK0-7 have PCINT16-23

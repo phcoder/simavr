@@ -58,7 +58,7 @@ static void avr_spi_write(struct avr_t * avr, avr_io_addr_t addr, uint8_t v, voi
 		avr_regbit_clear(avr, p->spi.raised);
 
 		avr_core_watch_write(avr, addr, v);
-		uint16_t clock_shift = _avr_spi_clkdiv[avr->data[p->r_spcr]&0b11];
+		uint16_t clock_shift = _avr_spi_clkdiv[avr->data[p->r_spcr]&3];
 		// If master && 2X, double rate (half divisor)
 		if (avr_regbit_get(avr, p->mstr) && avr_regbit_get(avr, p->spr[2]))
 			clock_shift>>=1;
